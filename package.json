@@ -1,0 +1,34 @@
+{
+  "name" : "@gregoriusrippenstein/node-red-contrib-uglifyjs",
+  "version": "0.0.1",
+  "dependencies": {
+    "uglify-js": "3.17.4"
+  },
+
+  "keywords": [
+    "node-red"
+  ],
+
+  "homepage": "https://github.com/gorenje/node-red-contrib-uglifyjs#readme",
+  "license": "Don't do evil.",
+  "author": "Joe Blog <joe.blog@spreads-the.love>",
+  "engines": {
+    "node": ">=14"
+  },
+
+  "node-red" : {
+    "version": ">=3.0.0",
+    "nodes": {
+       "uglifyjs": "nodes/uglifyjs.js"
+    }
+  },
+
+  "description": "Description of what these nodes do.",
+  "repository": {
+    "type": "github",
+    "url": "git+https://github.com/gorenje/node-red-contrib-uglifyjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gorenje/node-red-contrib-uglifyjs"
+  }
+}

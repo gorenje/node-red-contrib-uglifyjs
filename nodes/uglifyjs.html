@@ -1,0 +1,77 @@
+<script type="text/javascript">
+(function(){
+    
+  RED.nodes.registerType('UglifyJS',{
+    color: '#D7D7A0',
+    icon: "font-awesome/fa-compress",
+    category: 'parser',
+    defaults: {
+      name: {
+        value:"",
+      },
+      config: {
+        value: '{"parse":{},"compress":{},"mangle":{"reserved":["$","export","require"]},"output":null,"sourceMap":null,"nameCache":null,"toplevel":false,"warnings":false}'
+      },
+      configType: {
+        value: "json"
+      }
+    },
+
+    inputs: 1,
+    outputs: 1,
+
+    label: function() {
+      return (this.name || this._def.paletteLabel);
+    },
+
+    labelStyle: function() {
+      return this.name?"node_label_italic":"";
+    },
+
+    onpaletteadd: function() {
+    },
+
+    oneditprepare: function() {
+      $("#node-input-config").typedInput({
+          types:["json", "jsonata"],
+          typeField: "#node-input-configType"
+      });
+    },
+
+    oneditcancel: function() {
+    },
+
+    oneditsave: function() {
+    },
+
+    onpaletteremove: function() {
+    },
+
+
+
+  });
+})();
+</script>
+
+<script type="text/html" data-template-name="UglifyJS">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name"/>
+    </div>
+
+  <div class="form-row">
+    <label for="node-input-config">
+        <i class="fa fa-tag"></i>
+        Config
+      </label>
+    <input type="text" id="node-input-config">
+    <input type="hidden" id="node-input-configType">
+  </div>
+
+</script>
+
+<script type="text/html" data-help-name="UglifyJS">
+  <p>Uglify Javascript code.</p>
+  Uglify Javascript code. Based on the <a href="https://www.npmjs.com/package/uglify-js">uglify-js<a> package.
+  <p>Possible configuration options are described <a href="https://www.npmjs.com/package/uglify-js#minify-options">here</a>.
+</script>
