@@ -1,4 +1,4 @@
-# UglifyJS
+# Node-RED node wrapping Uglify-JS
 
 Simple node that using the <a href="https://www.npmjs.com/package/uglify-js">uglify-js</a> package to minify Javascript code.
 

@@ -6,7 +6,7 @@
   },
 
   "keywords": [
-    "node-red"
+    "node-red", "uglifyjs", "uglify-js"
   ],
 
   "homepage": "https://github.com/gorenje/node-red-contrib-uglifyjs#readme",
@@ -23,7 +23,7 @@
     }
   },
 
-  "description": "Description of what these nodes do.",
+  "description": "Node-RED wrapper node around the uglify-js package.",
   "repository": {
     "type": "github",
     "url": "git+https://github.com/gorenje/node-red-contrib-uglifyjs.git"
