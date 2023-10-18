@@ -1,6 +1,6 @@
 {
   "name" : "@gregoriusrippenstein/node-red-contrib-uglifyjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "uglify-js": "3.17.4"
   },
