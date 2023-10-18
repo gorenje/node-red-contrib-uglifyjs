@@ -11,7 +11,7 @@
 
   "homepage": "https://github.com/gorenje/node-red-contrib-uglifyjs#readme",
   "license": "Don't do evil.",
-  "author": "Gerrit Riessen <do.you@spread-the.love>",
+  "author": "Gerrit Riessen <gerrit@openmindmap.org>",
   "engines": {
     "node": ">=14"
   },

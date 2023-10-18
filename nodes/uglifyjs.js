@@ -12,23 +12,47 @@ module.exports = function(RED) {
     });
 
     node.on("input", function (msg, send, done) {
-      const uggCfg = RED.util.evaluateNodeProperty(cfg.config, cfg.configType, node, msg)
-
-      var result = UglifyJS.minify(msg.payload, uggCfg)
-      
-      if ( result.error ) {
-        msg.error = result.error
-        done("ugly error occurred", msg)
-      } else {
-        if ( Object.keys(result).length == 1 && result.code ) {
-          msg.payload = result.code
-        } else {
-          msg.payload = result
+      RED.util.evaluateNodeProperty(cfg.property || 'payload', cfg.propertyType || 'msg', node, msg, (err,content) => {
+        if ( err ) {
+          msg.error = err
+          done("Failed finding property", msg)
+          return;
         }
 
-        send(msg);
-        done();
-      }
+        RED.util.evaluateNodeProperty(cfg.config, cfg.configType, node, msg, (err, uggCfg) => {
+          if (err) {
+            msg.error = err
+            done("Failed finding configuration", msg)
+            return;
+          }
+
+          var result = UglifyJS.minify(content, uggCfg)
+
+          if (result.error) {
+            msg.error = result.error
+            done("ugly error occurred", msg)
+          } else {
+            // if result object consists of a single key called 'code' then return its 
+            // value as payload, else return the entire result object.
+            if (Object.keys(result).length == 1 && result.code) {
+              result = result.code
+            }
+
+            if (cfg.propertyType === 'flow' || cfg.propertyType === 'global') {
+              node.context()[cfg.propertyType].set(cfg.property, result, () => {
+                send(msg);
+                done();
+              })
+              return;
+            } else {
+              RED.util.setMessageProperty(msg, cfg.property || 'payload', result, true);
+            }
+
+            send(msg);
+            done();
+          }
+        })
+      })
     })
   }
   

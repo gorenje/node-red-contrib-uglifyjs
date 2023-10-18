@@ -14,7 +14,9 @@
       },
       configType: {
         value: "json"
-      }
+      },
+      property: { value:"payload" },
+      propertyType: { value:"msg" },
     },
 
     inputs: 1,
@@ -32,16 +34,31 @@
     },
 
     oneditprepare: function() {
+      var that = this;
+      
       $("#node-input-config").typedInput({
           types:["json", "jsonata"],
           typeField: "#node-input-configType"
       });
+
+      $("#node-input-property").typedInput({
+          default:'msg',
+          types:['msg', 'flow', 'global'],
+          typeField: "#node-input-propertyType"
+      });
+
+      $("#node-input-property").typedInput('value', that.property || that._def.property || 'payload');
+      
+      if ( that.propertyType ) {
+          $("#node-input-property").typedInput('type', that.propertyType);
+      }
     },
 
     oneditcancel: function() {
     },
 
     oneditsave: function() {
+      this.propertyType = $("#node-input-property").typedInput('type');
     },
 
     onpaletteremove: function() {
@@ -60,7 +77,8 @@
     </div>
 
     <div class="form-row">
-      All possible configuration options can be viewed at the <a target="_blank" style="color: blue;" href="https://www.npmjs.com/package/uglify-js#minify-options">uglify-js NPMjs page<i class="fa fa-external-link"></i></a>.
+      All possible configuration options can be viewed at<br> 
+      the <a target="_blank" style="color: blue;" href="https://www.npmjs.com/package/uglify-js#minify-options">uglify-js NPMjs page<i class="fa fa-external-link"></i></a>.
     </div>
 
   <div class="form-row">
@@ -72,6 +90,17 @@
     <input type="hidden" id="node-input-configType">
   </div>
 
+  <div class="form-row">
+    Apply to which property? This property will used as input <br> 
+    and it will be replaced on the message my the uglified version <br>
+    of the original content.
+  </div>
+  
+  <div class="form-row">
+    <label for="node-input-property">Property</label>
+    <input type="text" id="node-input-property"/>
+    <input type="hidden" id="node-input-propertyType"/>
+  </div>
 </script>
 
 <script type="text/html" data-help-name="UglifyJS">

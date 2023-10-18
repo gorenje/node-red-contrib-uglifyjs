@@ -38,7 +38,8 @@
                 "15b1bd3fd8c9c3f4",
                 "9c7d85b4139b0ff6",
                 "4c3a29d80906c57f",
-                "d15845b3f4152577"
+                "d15845b3f4152577",
+                "647fd1c5620671ba"
             ]
         ]
     },
@@ -46,16 +47,16 @@
         "id": "3228cf712f74dfc6",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "minified code",
+        "name": "minified code (msg cnt: 1)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1685,
+        "statusType": "counter",
+        "x": 1715,
         "y": 700,
         "wires": []
     },
@@ -100,16 +101,16 @@
         "id": "630dc99513c89d9b",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "incorrect js code",
+        "name": "incorrect js code (msg cnt: 1)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1695,
+        "statusType": "counter",
+        "x": 1725,
         "y": 558,
         "wires": []
     },
@@ -120,6 +121,8 @@
         "name": "",
         "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
         "configType": "json",
+        "property": "payload",
+        "propertyType": "msg",
         "x": 1240,
         "y": 597,
         "wires": [
@@ -162,16 +165,16 @@
         "id": "e9405b347fcf3f13",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "incorrect config code",
+        "name": "incorrect config code (msg cnt: 2)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1705,
+        "statusType": "counter",
+        "x": 1745,
         "y": 391,
         "wires": []
     },
@@ -201,6 +204,8 @@
         "name": "",
         "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
         "configType": "json",
+        "property": "payload",
+        "propertyType": "msg",
         "x": 1261,
         "y": 786,
         "wires": [
@@ -213,16 +218,16 @@
         "id": "cf3d8e45760587ed",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "multiple inputs",
+        "name": "multiple inputs (msg cnt: 1)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1685,
+        "statusType": "counter",
+        "x": 1725,
         "y": 786,
         "wires": []
     },
@@ -252,6 +257,8 @@
         "name": "toplevel argument",
         "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":true,\"warnings\":false}",
         "configType": "json",
+        "property": "payload",
+        "propertyType": "msg",
         "x": 1293,
         "y": 905,
         "wires": [
@@ -264,16 +271,16 @@
         "id": "411b0c47cddffbf1",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "toplevel argument true",
+        "name": "toplevel argument true (msg cnt: 1)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1705,
+        "statusType": "counter",
+        "x": 1745,
         "y": 905,
         "wires": []
     },
@@ -315,17 +322,137 @@
         "id": "f2d0f5576e5fbade",
         "type": "debug",
         "z": "ca78ac1011bd3194",
-        "name": "saucemap argument true",
+        "name": "saucemap argument true (msg cnt: 1)",
         "active": true,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
-        "statusType": "auto",
-        "x": 1715,
+        "statusType": "counter",
+        "x": 1755,
         "y": 1001,
         "wires": []
+    },
+    {
+        "id": "0615c4238c700bb0",
+        "type": "catch",
+        "z": "ca78ac1011bd3194",
+        "name": "",
+        "scope": null,
+        "uncaught": true,
+        "x": 612,
+        "y": 153,
+        "wires": [
+            [
+                "d13e2e2f0763f7da"
+            ]
+        ]
+    },
+    {
+        "id": "d13e2e2f0763f7da",
+        "type": "debug",
+        "z": "ca78ac1011bd3194",
+        "name": "THERE SHOULD BE NO UNCAUGHT ERRORS (msg cnt: 0)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "counter",
+        "x": 1021,
+        "y": 202,
+        "wires": []
+    },
+    {
+        "id": "647fd1c5620671ba",
+        "type": "change",
+        "z": "ca78ac1011bd3194",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "jscode",
+                "pt": "flow",
+                "to": "function add(first, second) { return first + second; }; console.log(add(1 + 2, 3 + 4));",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 815,
+        "y": 1114,
+        "wires": [
+            [
+                "903e8ad295dd7586"
+            ]
+        ]
+    },
+    {
+        "id": "903e8ad295dd7586",
+        "type": "UglifyJS",
+        "z": "ca78ac1011bd3194",
+        "name": "using flow context as source",
+        "config": "{\"parse\":{},\"compress\":{},\"mangle\":{\"reserved\":[\"$\",\"export\",\"require\"]},\"output\":null,\"sourceMap\":null,\"nameCache\":null,\"toplevel\":false,\"warnings\":false}",
+        "configType": "json",
+        "property": "jscode",
+        "propertyType": "flow",
+        "x": 1143,
+        "y": 1114,
+        "wires": [
+            [
+                "6c2f6c5d73a6a314"
+            ]
+        ]
+    },
+    {
+        "id": "47225a30072f43a1",
+        "type": "debug",
+        "z": "ca78ac1011bd3194",
+        "name": "flow value (msg cnt: 1)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "counter",
+        "x": 1705,
+        "y": 1114,
+        "wires": []
+    },
+    {
+        "id": "6c2f6c5d73a6a314",
+        "type": "change",
+        "z": "ca78ac1011bd3194",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "jscode",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1400,
+        "y": 1114,
+        "wires": [
+            [
+                "47225a30072f43a1"
+            ]
+        ]
     }
 ]
