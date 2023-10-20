@@ -47,11 +47,8 @@
           typeField: "#node-input-propertyType"
       });
 
-      $("#node-input-property").typedInput('value', that.property || that._def.property || 'payload');
-      
-      if ( that.propertyType ) {
-          $("#node-input-property").typedInput('type', that.propertyType);
-      }
+      $("#node-input-property").typedInput('value', that.property || that._def.defaults.property.value || 'payload');
+      $("#node-input-property").typedInput('type', that.propertyType || that._def.defaults.propertyType.value || 'msg');
     },
 
     oneditcancel: function() {
