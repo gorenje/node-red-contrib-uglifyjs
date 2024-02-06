@@ -2,7 +2,8 @@
   "name" : "@gregoriusrippenstein/node-red-contrib-uglifyjs",
   "version": "0.0.6",
   "dependencies": {
-    "uglify-js": "3.17.4"
+    "uglify-js": "^3.17.4",
+    "clean-css": "^5.3.3"
   },
 
   "keywords": [
@@ -19,7 +20,8 @@
   "node-red" : {
     "version": ">=3.0.0",
     "nodes": {
-       "uglifyjs": "nodes/uglifyjs.js"
+      "uglifyjs": "nodes/uglifyjs.js",
+      "minifycss": "nodes/minifycss.js"
     }
   },
 
